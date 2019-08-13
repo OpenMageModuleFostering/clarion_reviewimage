@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Community
+ * @package     Clarion_Bannerresponsive
+ * @copyright   Copyright magento@clariontechnologies.co.in
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <tabs>
+        <kush translate="label" module="reviewimage">
+            <label>Reviewimage Configuration</label>
+            <sort_order>10</sort_order>
+        </kush>
+    </tabs>
+	<sections>
+		<reviewimage translate="label" module="reviewimage">
+			<label> Configuration</label>
+			<tab>kush</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>677</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                		<reimage translate="label" module="reviewimage">
+					<label>Enable or Disable</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>140</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<reimagefield translate="label">
+							<label>Enable:</label>
+							<comment></comment>
+							<frontend_type>select</frontend_type>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+							<!--<source_model>allcurrency/type</source_model>-->
+						</reimagefield>	
+                                                
+                                                <imageresolution translate="label">
+							<label>Image Resolution</label>
+							<comment>Hight And Width For Review Image</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</imageresolution>	
+					</fields>
+                                        
+                                   </reimage>
+                                     
+                                    
+			</groups>        
+                        
+                        
+		</reviewimage>
+	</sections>
+</config>
