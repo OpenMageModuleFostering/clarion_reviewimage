@@ -20,14 +20,14 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
 <div class="form-add">
-    <h2><?php echo $this->__('Write Your Own Review') ?></h2>
+    <h2><?php echo $this->__('Write Your Own Reviews') ?></h2>
     <?php if ($this->getAllowWriteReviewFlag()): ?>
-    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
+    <form  action="<?php echo $this->getAction() ?>" method="post" id="review-form" enctype="multipart/form-data">
         <?php echo $this->getBlockHtml('formkey'); ?>
         <fieldset>
             <?php echo $this->getChildHtml('form_fields_before')?>
@@ -79,6 +79,15 @@
                             <input type="text" name="title" id="summary_field" class="input-text required-entry" value="<?php echo $this->escapeHtml($data->getTitle()) ?>" />
                         </div>
                     </li>
+                    <?php if(Mage::helper("reviewimage")->getActive() == '1'):?>
+                    <li>
+                        <label for="reviewimage" class="required"><em>*</em><?php echo $this->__('Review Image') ?></label>
+                        <div class="input-box">
+                            <input type="file" name="reviewimage" class="input-text required-entry"/>
+                        </div>
+                      
+                    </li>
+                    <?php endif;?>
                     <li>
                         <label for="review_field" class="required"><em>*</em><?php echo $this->__('Review') ?></label>
                         <div class="input-box">

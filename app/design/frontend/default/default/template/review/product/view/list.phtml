@@ -20,7 +20,7 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
@@ -32,9 +32,40 @@
         <?php echo $this->getChildHtml('toolbar') ?>
         <dl>
         <?php foreach ($_items as $_review):?>
+
+            
             <dt>
                 <a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><?php echo $this->escapeHtml($_review->getTitle()) ?></a> <?php echo $this->__('Review by <span>%s</span>', $this->escapeHtml($_review->getNickname())) ?>
             </dt>
+             <?php if(Mage::helper("reviewimage")->getActive() == '1'):?>
+             <?php if($_review->getReviewimage()):?>
+             <?php
+               /*
+               * image resize function
+               */
+                $imageUrl = Mage::getBaseUrl("media").'reviewimages/'.$_review->getReviewimage();
+               
+                $imageName = $_review->getReviewimage();
+                $imageResized = Mage::getBaseDir('media').DS."creviewimages".DS.$imageName;
+                $dirImg = Mage::getBaseDir().str_replace("/",DS,strstr($imageUrl,'/media'));
+
+                if (!file_exists($imageResized)&&file_exists($dirImg)) :
+                $imageObj = new Varien_Image($dirImg);
+                $imageObj->constrainOnly(TRUE);
+                $imageObj->keepAspectRatio(TRUE);
+                $imageObj->keepFrame(FALSE);
+                $Resolution = Mage::helper("reviewimage")->getResolution();
+                $imageObj->resize($Resolution);
+                $imageObj->save($imageResized);
+                endif;
+                $newImageUrl = Mage::getBaseUrl('media')."creviewimages/".$imageName;
+                /*
+                * image resize function
+                */
+               ?>
+            <dt style="margin:5px 5px;"><image  src="<?php echo $newImageUrl;?>"/></dt>
+            <?php endif;?>
+            <?php endif;?>
             <dd>
                 <?php $_votes = $_review->getRatingVotes(); ?>
                 <?php if (count($_votes)): ?>
@@ -50,6 +81,7 @@
                                     <div class="rating" style="width:<?php echo $_vote->getPercent() ?>%;"></div>
                                 </div>
                             </td>
+                            
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
