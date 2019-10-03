@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Clarion_Reviewimage",
+    "name": "OpenMageModuleFostering\/Clarion_Reviewimage",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
     "description": "Review Form With Image Field",
     "authors": [
-    {
-        "name": "kushagra daharwal",
-        "email": "kushagra.daharwal@clariontechnologies.co.in"
-    }
-],
+        {
+            "name": "kushagra daharwal",
+            "email": "kushagra.daharwal@clariontechnologies.co.in"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
