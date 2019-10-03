@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Clarion_Reviewimage",
+    "name": "openmage-module-fostering\/clarion_reviewimage",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Review Form With Image Field",
     "authors": [
